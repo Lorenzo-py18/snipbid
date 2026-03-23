@@ -1,8 +1,31 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SnipBid — AI Quotes for Contractors in 30 Seconds",
+  description: "AI-powered quoting and invoicing for plumbers, electricians, and HVAC contractors. Generate professional quotes in 30 seconds. Get paid faster with online approvals and Stripe payments. Free 14-day trial.",
+  alternates: { canonical: "https://snipbid.com" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SnipBid",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: "https://snipbid.com",
+  description: "AI-powered quoting and invoicing for contractors. Generate professional quotes in 30 seconds.",
+  offers: [
+    { "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free Trial" },
+    { "@type": "Offer", price: "19", priceCurrency: "USD", name: "Starter", billingIncrement: "month" },
+    { "@type": "Offer", price: "39", priceCurrency: "USD", name: "Pro", billingIncrement: "month" },
+  ],
+};
 
 export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#0e0e1a", color: "#e0e0ef", minHeight: "100vh", fontFamily: "Inter, sans-serif" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Nav */}
       <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 40px", borderBottom: "1px solid #222244" }}>
