@@ -20,7 +20,10 @@ export default function SignupPage() {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { business_name: businessName } },
+      options: {
+        data: { business_name: businessName },
+        emailRedirectTo: "https://snipbid.com/dashboard",
+      },
     });
 
     if (error) {
