@@ -64,12 +64,19 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="text-sm mt-6 text-center" style={{ color: "#8888aa" }}>
-          No account?{" "}
-          <Link href="/signup" style={{ color: "#f97316" }}>
-            Create one free
-          </Link>
-        </p>
+        <div className="mt-6 space-y-2 text-center">
+          <p className="text-sm" style={{ color: "#8888aa" }}>
+            <Link href="/forgot-password" style={{ color: "#f97316" }}>
+              Forgot password?
+            </Link>
+          </p>
+          <p className="text-sm" style={{ color: "#8888aa" }}>
+            No account?{" "}
+            <Link href="/signup" style={{ color: "#f97316" }}>
+              Create one free
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
