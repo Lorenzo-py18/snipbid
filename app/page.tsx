@@ -44,11 +44,11 @@ export default function HomePage() {
           Free to start — no credit card required
         </div>
         <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 20, maxWidth: 700, margin: "0 auto 20px" }}>
-          Professional Quotes in{" "}
-          <span style={{ color: "#f97316" }}>30 Seconds</span>
+          Turn Customer Requests Into Professional Quotes in{" "}
+          <span style={{ color: "#f97316" }}>Under a Minute</span>
         </h1>
         <p style={{ color: "#8888aa", fontSize: 18, maxWidth: 520, margin: "0 auto 40px", lineHeight: 1.6 }}>
-          AI-powered quoting and invoicing built for contractors. Stop wasting hours on paperwork — get paid faster.
+          SnipBid helps handymen and small home service businesses turn texts, notes, and job details into editable quotes and invoices — fast.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <Link href="/signup" style={{ backgroundColor: "#f97316", color: "#fff", padding: "14px 32px", borderRadius: 10, textDecoration: "none", fontSize: 16, fontWeight: 700 }}>
@@ -58,7 +58,7 @@ export default function HomePage() {
             Sign In
           </Link>
         </div>
-        <p style={{ color: "#8888aa", fontSize: 13, marginTop: 16 }}>14-day free trial · No setup fees</p>
+        <p style={{ color: "#8888aa", fontSize: 13, marginTop: 16 }}>AI drafts the quote. You review the pricing before sending.</p>
       </section>
 
       {/* How it works */}
@@ -90,8 +90,8 @@ export default function HomePage() {
             { icon: "📄", title: "PDF Export", desc: "Download and share polished quote PDFs" },
             { icon: "💳", title: "Online Payments", desc: "Accept cards via Stripe — get paid faster" },
             { icon: "📧", title: "Email Delivery", desc: "Send quotes directly to clients" },
-            { icon: "✅", title: "Client Approval", desc: "Clients approve online with one click" },
-            { icon: "📊", title: "Dashboard", desc: "Track all quotes and revenue in one place" },
+            { icon: "📋", title: "Paste & Go", desc: "Paste a customer text message — AI fills the quote for you" },
+            { icon: "🔁", title: "Quote to Invoice", desc: "Convert approved quotes to invoices in one click" },
           ].map((f) => (
             <div key={f.title} style={{ backgroundColor: "#16162a", border: "1px solid #222244", borderRadius: 12, padding: 20 }}>
               <div style={{ fontSize: 28, marginBottom: 10 }}>{f.icon}</div>
@@ -130,7 +130,7 @@ export default function HomePage() {
               name: "Pro",
               price: "$39",
               period: "/month",
-              features: ["Unlimited quotes", "Custom branding", "Priority AI", "Analytics dashboard"],
+              features: ["Unlimited quotes", "Custom branding", "Email delivery", "Quote to invoice"],
               cta: "Get Pro",
               href: "/signup",
               highlight: true,

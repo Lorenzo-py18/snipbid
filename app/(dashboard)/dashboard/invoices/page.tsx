@@ -35,7 +35,7 @@ export default function InvoicesPage() {
         ) : (
           <div className="divide-y" style={{ borderColor: "#222244" }}>
             {invoices.map(inv => (
-              <div key={inv.id} className="flex items-center justify-between p-4">
+              <Link key={inv.id} href={`/dashboard/invoices/${inv.id}`} className="flex items-center justify-between p-4 hover:bg-white/5 transition-colors">
                 <div>
                   <p className="font-medium text-sm" style={{ color: "#e0e0ef" }}>{inv.invoice_number} · {inv.client_name}</p>
                   <p className="text-xs mt-0.5" style={{ color: "#8888aa" }}>
@@ -49,7 +49,7 @@ export default function InvoicesPage() {
                     {inv.status}
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}

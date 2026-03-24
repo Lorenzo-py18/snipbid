@@ -41,7 +41,7 @@ export default function SignupPage() {
         payment_terms: "Due within 14 days",
         tax_rate: 8.75,
       });
-      router.push("/dashboard");
+      router.push("/onboarding");
     }
   }
 
