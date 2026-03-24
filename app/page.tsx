@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SnipBid — AI Quotes for Contractors in 30 Seconds",
-  description: "AI-powered quoting and invoicing for plumbers, electricians, and HVAC contractors. Generate professional quotes in 30 seconds. Get paid faster with online approvals and Stripe payments. Free 14-day trial.",
+  title: "SnipBid — Turn Customer Requests Into Professional Quotes in Under a Minute",
+  description: "SnipBid helps handymen and small home service businesses turn texts, notes, and job details into editable quotes — then convert them into invoices when approved. AI drafts the quote. You review the pricing before sending.",
   alternates: { canonical: "https://snipbid.com" },
 };
 
@@ -14,7 +14,7 @@ const jsonLd = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: "https://snipbid.com",
-  description: "AI-powered quoting and invoicing for contractors. Generate professional quotes in 30 seconds.",
+  description: "A quote-to-invoice workflow tool for handymen and small home service businesses. Turn customer requests into professional quotes in under a minute.",
   offers: [
     { "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free Trial" },
     { "@type": "Offer", price: "19", priceCurrency: "USD", name: "Starter", billingIncrement: "month" },
@@ -33,7 +33,7 @@ export default function HomePage() {
         <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
           <Link href="/login" style={{ color: "#8888aa", textDecoration: "none", fontSize: 14 }}>Sign In</Link>
           <Link href="/signup" style={{ backgroundColor: "#f97316", color: "#fff", padding: "8px 20px", borderRadius: 8, textDecoration: "none", fontSize: 14, fontWeight: 600 }}>
-            Get Started Free
+            Start Free
           </Link>
         </div>
       </nav>
@@ -41,78 +41,165 @@ export default function HomePage() {
       {/* Hero */}
       <section style={{ textAlign: "center", padding: "80px 20px 60px" }}>
         <div style={{ display: "inline-block", backgroundColor: "#f9731622", color: "#f97316", padding: "6px 16px", borderRadius: 20, fontSize: 13, marginBottom: 24, border: "1px solid #f9731644" }}>
-          Free to start — no credit card required
+          Not a CRM. Not scheduling software. Just a faster way to draft quotes and send invoices.
         </div>
-        <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 20, maxWidth: 700, margin: "0 auto 20px" }}>
-          Turn Customer Requests Into Professional Quotes in{" "}
-          <span style={{ color: "#f97316" }}>Under a Minute</span>
+        <h1 style={{ fontSize: "clamp(36px, 6vw, 60px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 20, maxWidth: 720, margin: "0 auto 20px" }}>
+          Turn customer requests into professional quotes{" "}
+          <span style={{ color: "#f97316" }}>in under a minute</span>
         </h1>
-        <p style={{ color: "#8888aa", fontSize: 18, maxWidth: 520, margin: "0 auto 40px", lineHeight: 1.6 }}>
-          SnipBid helps handymen and small home service businesses turn texts, notes, and job details into editable quotes and invoices — fast.
+        <p style={{ color: "#8888aa", fontSize: 18, maxWidth: 580, margin: "0 auto 16px", lineHeight: 1.7 }}>
+          SnipBid helps handymen and small home service businesses turn texts, notes, and job details into editable quotes — then convert them into invoices when approved.
+        </p>
+        <p style={{ color: "#6666888", fontSize: 14, marginBottom: 40 }}>
+          AI drafts the quote. You review the pricing before sending.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <Link href="/signup" style={{ backgroundColor: "#f97316", color: "#fff", padding: "14px 32px", borderRadius: 10, textDecoration: "none", fontSize: 16, fontWeight: 700 }}>
-            Start Free Trial
+            Start Free
           </Link>
-          <Link href="/login" style={{ backgroundColor: "#16162a", color: "#e0e0ef", padding: "14px 32px", borderRadius: 10, textDecoration: "none", fontSize: 16, border: "1px solid #222244" }}>
-            Sign In
-          </Link>
+          <a href="#how-it-works" style={{ backgroundColor: "#16162a", color: "#e0e0ef", padding: "14px 32px", borderRadius: 10, textDecoration: "none", fontSize: 16, border: "1px solid #222244" }}>
+            See How It Works
+          </a>
         </div>
-        <p style={{ color: "#8888aa", fontSize: 13, marginTop: 16 }}>AI drafts the quote. You review the pricing before sending.</p>
+        <p style={{ color: "#555577", fontSize: 13, marginTop: 16 }}>Free to start — no credit card required</p>
       </section>
 
-      {/* How it works */}
-      <section style={{ padding: "60px 20px", maxWidth: 900, margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center", fontSize: 32, fontWeight: 700, marginBottom: 48 }}>How It Works</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+      {/* Before / After */}
+      <section id="how-it-works" style={{ padding: "60px 20px", maxWidth: 860, margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 700, marginBottom: 12 }}>See how it works</h2>
+        <p style={{ textAlign: "center", color: "#8888aa", fontSize: 15, marginBottom: 40 }}>A rough customer message becomes a client-ready quote in seconds.</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 0, borderRadius: 16, overflow: "hidden", border: "1px solid #222244" }}>
+          {/* Before */}
+          <div style={{ backgroundColor: "#16162a", padding: 32 }}>
+            <div style={{ color: "#8888aa", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginBottom: 16 }}>Customer message</div>
+            <div style={{ backgroundColor: "#0e0e1a", borderRadius: 12, padding: 20, border: "1px solid #222244" }}>
+              <p style={{ color: "#ccccdd", fontSize: 14, lineHeight: 1.7, margin: 0, fontStyle: "italic" }}>
+                "Hi, I need help replacing a bathroom faucet and patching a small drywall hole. I'm available Thursday afternoon. Can you send me a quote?"
+              </p>
+            </div>
+            <div style={{ marginTop: 16, display: "flex", alignItems: "center", gap: 8, color: "#555577", fontSize: 13 }}>
+              <span>📱</span> Paste from text, email, or Facebook
+            </div>
+          </div>
+          {/* Arrow divider */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#12122200", padding: "0 12px", minWidth: 48 }}>
+            <div style={{ color: "#f97316", fontSize: 28, fontWeight: 700 }}>→</div>
+          </div>
+          {/* After */}
+          <div style={{ backgroundColor: "#16162a", padding: 32, borderLeft: "1px solid #222244" }}>
+            <div style={{ color: "#f97316", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginBottom: 16 }}>SnipBid quote draft</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {[
+                { label: "Replace bathroom faucet", sub: "Labor + materials, editable" },
+                { label: "Patch drywall hole", sub: "Materials + finish, editable" },
+                { label: "Scope of work drafted", sub: "Professional description included" },
+                { label: "Pricing & terms editable", sub: "You control every number" },
+              ].map((item) => (
+                <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <span style={{ color: "#f97316", marginTop: 2 }}>✓</span>
+                  <div>
+                    <div style={{ fontSize: 14, color: "#e0e0ef", fontWeight: 500 }}>{item.label}</div>
+                    <div style={{ fontSize: 12, color: "#8888aa" }}>{item.sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop: 20, backgroundColor: "#f9731622", border: "1px solid #f9731644", borderRadius: 8, padding: "10px 14px", fontSize: 13, color: "#f97316" }}>
+              Ready to review and send
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works — 4 steps */}
+      <section style={{ padding: "40px 20px 60px", maxWidth: 900, margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 700, marginBottom: 48 }}>How It Works</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
           {[
-            { step: "1", title: "Enter Job Details", desc: "Add client info and select services from pre-built templates for plumbers, electricians, and HVAC techs." },
-            { step: "2", title: "AI Writes the Quote", desc: "Our AI generates a professional, detailed quote with scope of work, warranty terms, and pricing breakdown." },
-            { step: "3", title: "Client Approves & Pays", desc: "Send via email. Client views, approves, and pays online with one click. No chasing required." },
+            { step: "1", title: "Paste the request", desc: "Paste a customer text, email, or rough job note into SnipBid." },
+            { step: "2", title: "AI drafts the quote", desc: "SnipBid extracts job details and builds an editable professional quote draft." },
+            { step: "3", title: "Review and adjust", desc: "Update pricing, line items, scope, and terms before the client ever sees it." },
+            { step: "4", title: "Send and invoice", desc: "Share the quote with your client, then convert it to an invoice once approved." },
           ].map((item) => (
-            <div key={item.step} style={{ backgroundColor: "#16162a", border: "1px solid #222244", borderRadius: 16, padding: 28 }}>
-              <div style={{ width: 40, height: 40, backgroundColor: "#f9731622", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "#f97316", fontWeight: 700, fontSize: 18, marginBottom: 16 }}>
+            <div key={item.step} style={{ backgroundColor: "#16162a", border: "1px solid #222244", borderRadius: 16, padding: 24 }}>
+              <div style={{ width: 38, height: 38, backgroundColor: "#f9731622", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "#f97316", fontWeight: 700, fontSize: 16, marginBottom: 14 }}>
                 {item.step}
               </div>
-              <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>{item.title}</h3>
-              <p style={{ color: "#8888aa", fontSize: 14, lineHeight: 1.6 }}>{item.desc}</p>
+              <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{item.title}</h3>
+              <p style={{ color: "#8888aa", fontSize: 13, lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Features */}
-      <section style={{ padding: "60px 20px", maxWidth: 900, margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center", fontSize: 32, fontWeight: 700, marginBottom: 48 }}>Everything You Need</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
+      {/* Value Messaging */}
+      <section style={{ padding: "40px 20px 60px", maxWidth: 900, margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 700, marginBottom: 12 }}>Why small home service businesses use SnipBid</h2>
+        <p style={{ textAlign: "center", color: "#8888aa", fontSize: 15, marginBottom: 48 }}>Built for handymen and solo operators — not enterprise contractors.</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
           {[
-            { icon: "⚡", title: "AI Quote Generation", desc: "Professional quotes written in seconds" },
-            { icon: "📄", title: "PDF Export", desc: "Download and share polished quote PDFs" },
-            { icon: "💳", title: "Online Payments", desc: "Accept cards via Stripe — get paid faster" },
-            { icon: "📧", title: "Email Delivery", desc: "Send quotes directly to clients" },
-            { icon: "📋", title: "Paste & Go", desc: "Paste a customer text message — AI fills the quote for you" },
-            { icon: "🔁", title: "Quote to Invoice", desc: "Convert approved quotes to invoices in one click" },
+            {
+              icon: "⚡",
+              title: "Respond faster to leads",
+              desc: "Don't lose jobs while you're still formatting estimates by hand. Quote before your competition does.",
+            },
+            {
+              icon: "📋",
+              title: "Turn messy requests into clean quotes",
+              desc: "Convert texts, notes, and rough job details into professional client-ready quotes — without starting from scratch.",
+            },
+            {
+              icon: "🔒",
+              title: "Keep pricing in your control",
+              desc: "SnipBid drafts the structure. You review every number before anything gets sent to the client.",
+            },
+            {
+              icon: "🔁",
+              title: "Quote to invoice in one click",
+              desc: "When the customer approves, convert the quote into a payable invoice without starting over.",
+            },
+          ].map((v) => (
+            <div key={v.title} style={{ backgroundColor: "#16162a", border: "1px solid #222244", borderRadius: 14, padding: 24 }}>
+              <div style={{ fontSize: 26, marginBottom: 12 }}>{v.icon}</div>
+              <h4 style={{ fontSize: 15, fontWeight: 600, marginBottom: 8 }}>{v.title}</h4>
+              <p style={{ color: "#8888aa", fontSize: 13, lineHeight: 1.6, margin: 0 }}>{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Feature Block */}
+      <section style={{ padding: "40px 20px 60px", maxWidth: 900, margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 700, marginBottom: 48 }}>What's included</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
+          {[
+            { icon: "📥", title: "Paste & Go", desc: "Paste a customer message and let SnipBid build the first draft for you." },
+            { icon: "✏️", title: "Editable Quote Drafts", desc: "Review and update line items, pricing, scope, and notes before sending." },
+            { icon: "🔁", title: "Quote to Invoice", desc: "Turn approved quotes into invoices without starting over." },
+            { icon: "📤", title: "Share Your Way", desc: "Send by link, export as PDF, or email your quote directly to the client." },
+            { icon: "💳", title: "Online Payments", desc: "Clients pay directly from their invoice link via Stripe." },
+            { icon: "📄", title: "PDF Export", desc: "Download a polished quote or invoice PDF anytime." },
           ].map((f) => (
             <div key={f.title} style={{ backgroundColor: "#16162a", border: "1px solid #222244", borderRadius: 12, padding: 20 }}>
-              <div style={{ fontSize: 28, marginBottom: 10 }}>{f.icon}</div>
-              <h4 style={{ fontSize: 15, fontWeight: 600, marginBottom: 6 }}>{f.title}</h4>
-              <p style={{ color: "#8888aa", fontSize: 13, lineHeight: 1.5 }}>{f.desc}</p>
+              <div style={{ fontSize: 26, marginBottom: 10 }}>{f.icon}</div>
+              <h4 style={{ fontSize: 14, fontWeight: 600, marginBottom: 6 }}>{f.title}</h4>
+              <p style={{ color: "#8888aa", fontSize: 13, lineHeight: 1.5, margin: 0 }}>{f.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Pricing */}
-      <section style={{ padding: "60px 20px", maxWidth: 800, margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center", fontSize: 32, fontWeight: 700, marginBottom: 12 }}>Simple Pricing</h2>
-        <p style={{ textAlign: "center", color: "#8888aa", marginBottom: 48 }}>Start free, upgrade when you're ready</p>
+      <section style={{ padding: "40px 20px 60px", maxWidth: 800, margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 700, marginBottom: 12 }}>Simple Pricing</h2>
+        <p style={{ textAlign: "center", color: "#8888aa", marginBottom: 48, fontSize: 15 }}>Start free, upgrade when you&apos;re ready</p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
           {[
             {
               name: "Free Trial",
               price: "$0",
               period: "14 days",
-              features: ["10 quotes", "AI generation", "PDF export", "Client approval"],
+              features: ["10 quotes", "AI generation", "PDF export", "Client approval link"],
               cta: "Start Free",
               href: "/signup",
               highlight: false,
@@ -130,7 +217,7 @@ export default function HomePage() {
               name: "Pro",
               price: "$39",
               period: "/month",
-              features: ["Unlimited quotes", "Custom branding", "Email delivery", "Quote to invoice"],
+              features: ["Unlimited quotes", "Custom branding", "Quote to invoice", "Priority support"],
               cta: "Get Pro",
               href: "/signup",
               highlight: true,
@@ -171,21 +258,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ textAlign: "center", padding: "60px 20px 80px" }}>
-        <h2 style={{ fontSize: 32, fontWeight: 700, marginBottom: 16 }}>Ready to save hours every week?</h2>
-        <p style={{ color: "#8888aa", marginBottom: 32 }}>Join contractors already using SnipBid to win more jobs.</p>
+      {/* Bottom CTA */}
+      <section style={{ textAlign: "center", padding: "60px 20px 80px", maxWidth: 640, margin: "0 auto" }}>
+        <h2 style={{ fontSize: 30, fontWeight: 700, marginBottom: 16 }}>Spend less time writing quotes and more time on jobs</h2>
+        <p style={{ color: "#8888aa", marginBottom: 12, lineHeight: 1.7, fontSize: 16 }}>
+          SnipBid helps small home service businesses draft cleaner quotes, send them faster, and convert them into invoices when the job is approved.
+        </p>
+        <p style={{ color: "#666688", fontSize: 14, marginBottom: 36 }}>AI drafts the quote. You review the pricing before sending.</p>
         <Link href="/signup" style={{ backgroundColor: "#f97316", color: "#fff", padding: "16px 40px", borderRadius: 10, textDecoration: "none", fontSize: 18, fontWeight: 700 }}>
-          Start Free Trial
+          Start Free
         </Link>
+        <p style={{ color: "#555577", fontSize: 13, marginTop: 16 }}>No credit card required. Free for 14 days.</p>
       </section>
 
       {/* Footer */}
       <footer style={{ borderTop: "1px solid #222244", padding: "24px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-        <span style={{ color: "#f97316", fontWeight: 700 }}>SnipBid</span>
-        <span style={{ color: "#8888aa", fontSize: 13 }}>© 2026 SnipBid. All rights reserved.</span>
+        <div>
+          <span style={{ color: "#f97316", fontWeight: 700, fontSize: 16 }}>SnipBid</span>
+          <span style={{ color: "#555577", fontSize: 13, marginLeft: 12 }}>A quote-to-invoice workflow tool for small home service businesses</span>
+        </div>
+        <span style={{ color: "#555577", fontSize: 13 }}>© 2026 SnipBid. All rights reserved.</span>
       </footer>
-
     </div>
   );
 }
