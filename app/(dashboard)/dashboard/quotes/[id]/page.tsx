@@ -16,6 +16,7 @@ export default function QuoteDetailPage() {
   const [quote, setQuote] = useState<any>(null);
   const [lineItems, setLineItems] = useState<any[]>([]);
   const [sending, setSending] = useState(false);
+  const [converting, setConverting] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -37,6 +38,21 @@ export default function QuoteDetailPage() {
     });
     setQuote((q: any) => ({ ...q, status: "sent" }));
     setSending(false);
+  }
+
+  async function handleConvertToInvoice() {
+    setConverting(true);
+    const res = await fetch("/api/invoices/from-quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ quoteId: id }),
+    });
+    const data = await res.json();
+    setConverting(false);
+    if (data.invoice) {
+      setQuote((q: any) => ({ ...q, status: "invoiced" }));
+      router.push("/dashboard/invoices");
+    }
   }
 
   async function handleDelete() {
@@ -108,6 +124,11 @@ export default function QuoteDetailPage() {
           <Link href={`/q/${quote.public_token}`} target="_blank" className="flex-1 py-2.5 rounded-lg text-sm font-medium text-center border" style={{ borderColor: "#222244", color: "#e0e0ef" }}>
             Preview Client View
           </Link>
+        )}
+        {(quote.status === "approved") && (
+          <button onClick={handleConvertToInvoice} disabled={converting} className="flex-1 py-2.5 rounded-lg text-sm font-medium text-white" style={{ backgroundColor: "#a855f7" }}>
+            {converting ? "Creating..." : "Convert to Invoice"}
+          </button>
         )}
         <button onClick={handleDelete} className="px-4 py-2.5 rounded-lg text-sm" style={{ color: "#ef4444" }}>
           Delete
