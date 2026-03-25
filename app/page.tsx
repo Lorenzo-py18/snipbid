@@ -272,12 +272,38 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer style={{ borderTop: "1px solid #222244", padding: "24px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-        <div>
-          <span style={{ color: "#f97316", fontWeight: 700, fontSize: 16 }}>SnipBid</span>
-          <span style={{ color: "#555577", fontSize: 13, marginLeft: 12 }}>A quote-to-invoice workflow tool for small home service businesses</span>
+      <footer style={{ borderTop: "1px solid #222244", padding: "32px 40px", flexWrap: "wrap", gap: 20 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 24, marginBottom: 24 }}>
+          <div>
+            <span style={{ color: "#f97316", fontWeight: 700, fontSize: 16 }}>SnipBid</span>
+            <p style={{ color: "#555577", fontSize: 13, marginTop: 6, maxWidth: 280 }}>A quote-to-invoice workflow tool for handymen and small home service businesses.</p>
+          </div>
+          <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
+            <div>
+              <div style={{ color: "#8888aa", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>Software</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <Link href="/handyman-quote-software" style={{ color: "#8888aa", fontSize: 13, textDecoration: "none" }}>Handyman Quote Software</Link>
+                <Link href="/quote-to-invoice-software" style={{ color: "#8888aa", fontSize: 13, textDecoration: "none" }}>Quote to Invoice Software</Link>
+              </div>
+            </div>
+            <div>
+              <div style={{ color: "#8888aa", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>Templates</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <Link href="/templates/handyman-quote-template" style={{ color: "#8888aa", fontSize: 13, textDecoration: "none" }}>Handyman Quote Template</Link>
+              </div>
+            </div>
+            <div>
+              <div style={{ color: "#8888aa", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>Resources</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <Link href="/blog/how-to-write-a-handyman-estimate" style={{ color: "#8888aa", fontSize: 13, textDecoration: "none" }}>How to Write an Estimate</Link>
+                <Link href="/blog/quote-vs-invoice-for-handymen" style={{ color: "#8888aa", fontSize: 13, textDecoration: "none" }}>Quote vs Invoice</Link>
+              </div>
+            </div>
+          </div>
         </div>
-        <span style={{ color: "#555577", fontSize: 13 }}>© 2026 SnipBid. All rights reserved.</span>
+        <div style={{ borderTop: "1px solid #1a1a2e", paddingTop: 20 }}>
+          <span style={{ color: "#555577", fontSize: 13 }}>© 2026 SnipBid. All rights reserved.</span>
+        </div>
       </footer>
     </div>
   );
