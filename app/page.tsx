@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SnipBid — Turn Messy Customer Texts Into Professional Quotes in Under a Minute",
+  title: "SnipBid | Handyman Quote Software & Quote-to-Invoice Workflow",
   description: "SnipBid helps handymen and small home service businesses turn texts, notes, and job details into editable quotes — then convert them into invoices when approved. AI drafts the quote. You review every price before sending.",
   alternates: { canonical: "https://snipbid.com" },
 };

@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
   const path = request.nextUrl.pathname;
 
-  const publicPaths = ["/login", "/signup", "/onboarding", "/q/", "/i/", "/forgot-password", "/reset-password", "/handyman-quote-software", "/quote-to-invoice-software", "/home-service-quote-software", "/handyman-invoice-software", "/templates/", "/blog/"];
+  const publicPaths = ["/login", "/signup", "/onboarding", "/q/", "/i/", "/forgot-password", "/reset-password", "/handyman-quote-software", "/quote-to-invoice-software", "/home-service-quote-software", "/handyman-invoice-software", "/handyman-estimate-software", "/templates/", "/blog/"];
   const isPublic = publicPaths.some((p) => path.startsWith(p));
 
   if (!user && !isPublic && path !== "/") {
@@ -43,5 +43,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|api/webhooks).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|api/webhooks).*)"],
 };

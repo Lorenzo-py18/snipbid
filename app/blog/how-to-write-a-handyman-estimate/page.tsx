@@ -214,8 +214,11 @@ export default function HowToWriteAHandymanEstimatePage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {[
             { href: "/templates/handyman-quote-template", label: "Free Handyman Quote Template" },
-            { href: "/quote-to-invoice-software", label: "Quote to Invoice Software" },
+            { href: "/quote-to-invoice-software", label: "Quote to Invoice Software for Small Businesses" },
             { href: "/blog/quote-vs-invoice-for-handymen", label: "Quote vs Invoice for Handymen: What's the Difference?" },
+            { href: "/handyman-quote-software", label: "Handyman Quote Software" },
+            { href: "/handyman-estimate-software", label: "Handyman Estimate Software" },
+            { href: "/handyman-invoice-software", label: "Handyman Invoice Software" },
           ].map((link) => (
             <Link key={link.href} href={link.href} style={{ color: "#f97316", fontSize: 14, textDecoration: "none" }}>→ {link.label}</Link>
           ))}

@@ -176,7 +176,9 @@ export default function QuoteVsInvoiceForHandymenPage() {
             { href: "/blog/how-to-write-a-handyman-estimate", label: "How to Write a Handyman Estimate (With Example)" },
             { href: "/templates/handyman-quote-template", label: "Free Handyman Quote Template" },
             { href: "/handyman-quote-software", label: "Handyman Quote Software" },
+            { href: "/handyman-estimate-software", label: "Handyman Estimate Software" },
             { href: "/quote-to-invoice-software", label: "Quote to Invoice Software" },
+            { href: "/handyman-invoice-software", label: "Handyman Invoice Software" },
           ].map((link) => (
             <Link key={link.href} href={link.href} style={{ color: "#f97316", fontSize: 14, textDecoration: "none" }}>→ {link.label}</Link>
           ))}
