@@ -135,7 +135,7 @@ export default function ClientQuotePage({ quote, lineItems, profile }: { quote: 
           </div>
         )}
 
-        <p className="text-center text-xs mt-6" style={{ color: "#8888aa" }}>Powered by QuickBid Pro</p>
+        <p className="text-center text-xs mt-6" style={{ color: "#8888aa" }}>Powered by SnipBid</p>
       </div>
     </div>
   );

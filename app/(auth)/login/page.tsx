@@ -13,9 +13,13 @@ export default function LoginPage() {
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
+    if (!email.trim() || !password.trim()) {
+      setError("Please enter your email and password.");
+      return;
+    }
     setLoading(true);
     setError("");
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
     if (error) {
       setError(error.message);
       setLoading(false);
@@ -27,7 +31,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#0e0e1a" }}>
       <div className="w-full max-w-md p-8 rounded-xl" style={{ backgroundColor: "#16162a", border: "1px solid #222244" }}>
-        <h1 className="text-2xl font-bold mb-2" style={{ color: "#f97316" }}>QuickBid Pro</h1>
+        <h1 className="text-2xl font-bold mb-2" style={{ color: "#f97316" }}>SnipBid</h1>
         <p className="text-sm mb-8" style={{ color: "#8888aa" }}>Sign in to your account</p>
 
         <form onSubmit={handleLogin} className="space-y-4">

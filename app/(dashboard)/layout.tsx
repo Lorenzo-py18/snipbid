@@ -17,7 +17,7 @@ const navItems = [
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [businessName, setBusinessName] = useState("QuickBid Pro");
+  const [businessName, setBusinessName] = useState("SnipBid");
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
@@ -37,7 +37,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-56 border-r" style={{ backgroundColor: "#16162a", borderColor: "#222244" }}>
         <div className="p-4 border-b" style={{ borderColor: "#222244" }}>
-          <h1 className="font-bold text-lg" style={{ color: "#f97316" }}>QuickBid Pro</h1>
+          <h1 className="font-bold text-lg" style={{ color: "#f97316" }}>SnipBid</h1>
           <p className="text-xs truncate mt-0.5" style={{ color: "#8888aa" }}>{businessName}</p>
         </div>
         <nav className="flex-1 p-3 space-y-1">

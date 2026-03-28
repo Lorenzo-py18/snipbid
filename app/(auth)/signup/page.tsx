@@ -48,7 +48,7 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#0e0e1a" }}>
       <div className="w-full max-w-md p-8 rounded-xl" style={{ backgroundColor: "#16162a", border: "1px solid #222244" }}>
-        <h1 className="text-2xl font-bold mb-2" style={{ color: "#f97316" }}>QuickBid Pro</h1>
+        <h1 className="text-2xl font-bold mb-2" style={{ color: "#f97316" }}>SnipBid</h1>
         <p className="text-sm mb-8" style={{ color: "#8888aa" }}>Create your free account</p>
 
         <form onSubmit={handleSignup} className="space-y-4">
