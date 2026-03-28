@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 
 export default function ClientQuotePage({ quote, lineItems, profile }: { quote: any; lineItems: any[]; profile: any }) {
@@ -7,10 +7,26 @@ export default function ClientQuotePage({ quote, lineItems, profile }: { quote: 
   const [showFeedback, setShowFeedback] = useState(false);
   const [status, setStatus] = useState(quote.status);
   const [processing, setProcessing] = useState(false);
+  const [isPrint, setIsPrint] = useState(false);
+  const [toast, setToast] = useState("");
+
+  function showToast(msg: string) {
+    setToast(msg);
+    setTimeout(() => setToast(""), 3000);
+  }
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("print") === "1") {
+      setIsPrint(true);
+      setTimeout(() => window.print(), 500);
+    }
+  }, []);
 
   async function handleApprove() {
     await supabase.from("quotes").update({ status: "approved", approved_at: new Date().toISOString() }).eq("id", quote.id);
     setStatus("approved");
+    showToast("Quote approved! You can now proceed to payment.");
   }
 
   async function handlePay() {
@@ -29,9 +45,10 @@ export default function ClientQuotePage({ quote, lineItems, profile }: { quote: 
   }
 
   async function handleFeedback() {
-    await supabase.from("quotes").update({ status: "declined" }).eq("id", quote.id);
+    await supabase.from("quotes").update({ status: "declined", feedback_notes: feedback }).eq("id", quote.id);
     setStatus("declined");
     setShowFeedback(false);
+    showToast("Changes requested. The contractor will be in touch.");
   }
 
   const STATUS_COLORS: Record<string, string> = {
@@ -40,6 +57,21 @@ export default function ClientQuotePage({ quote, lineItems, profile }: { quote: 
 
   return (
     <div className="min-h-screen py-8 px-4" style={{ backgroundColor: "#0e0e1a" }}>
+      {toast && (
+        <div className="fixed top-4 right-4 z-50 px-4 py-3 rounded-lg text-sm font-medium text-white shadow-lg no-print"
+          style={{ backgroundColor: "#22c55e" }}>
+          ✓ {toast}
+        </div>
+      )}
+      <style>{`
+        @media print {
+          body { background: #fff !important; }
+          .no-print { display: none !important; }
+          .print-page { background: #fff !important; color: #111 !important; border: none !important; }
+          .print-text { color: #111 !important; }
+          .print-muted { color: #555 !important; }
+        }
+      `}</style>
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="p-6 rounded-xl mb-4" style={{ backgroundColor: "#16162a", border: "1px solid #222244" }}>
@@ -78,9 +110,9 @@ export default function ClientQuotePage({ quote, lineItems, profile }: { quote: 
               <div key={item.id} className="flex justify-between text-sm pb-3 border-b" style={{ borderColor: "#222244" }}>
                 <div>
                   <p style={{ color: "#e0e0ef" }}>{item.service_name}</p>
-                  <p style={{ color: "#8888aa" }}>Labor: ${item.labor_cost} · Materials: ${item.material_cost} · {item.hours}h</p>
+                  <p style={{ color: "#8888aa" }}>Qty: {item.quantity} × ${Number(item.unit_price || 0).toFixed(2)}</p>
                 </div>
-                <p className="font-medium" style={{ color: "#e0e0ef" }}>${(item.labor_cost + item.material_cost).toFixed(2)}</p>
+                <p className="font-medium" style={{ color: "#e0e0ef" }}>${Number(item.amount || 0).toFixed(2)}</p>
               </div>
             ))}
           </div>
@@ -97,9 +129,20 @@ export default function ClientQuotePage({ quote, lineItems, profile }: { quote: 
           </div>
         </div>
 
+        {/* PDF Download */}
+        <div className="flex justify-end mb-2 no-print">
+          <button
+            onClick={() => window.print()}
+            className="px-4 py-2 rounded-lg text-sm border"
+            style={{ borderColor: "#222244", color: "#8888aa" }}
+          >
+            ⬇ Download / Print PDF
+          </button>
+        </div>
+
         {/* Actions */}
         {status === "sent" && (
-          <div className="flex gap-3">
+          <div className="flex gap-3 no-print">
             <button onClick={handleApprove} className="flex-1 py-3 rounded-xl font-medium text-white" style={{ backgroundColor: "#22c55e" }}>
               Approve Quote
             </button>
@@ -110,13 +153,13 @@ export default function ClientQuotePage({ quote, lineItems, profile }: { quote: 
         )}
 
         {status === "approved" && (
-          <button onClick={handlePay} disabled={processing} className="w-full py-3 rounded-xl font-medium text-white" style={{ backgroundColor: "#f97316" }}>
+          <button onClick={handlePay} disabled={processing} className="no-print w-full py-3 rounded-xl font-medium text-white" style={{ backgroundColor: "#f97316" }}>
             {processing ? "Processing..." : `Pay Now — $${(quote.total || 0).toFixed(2)}`}
           </button>
         )}
 
         {showFeedback && (
-          <div className="mt-4 p-4 rounded-xl" style={{ backgroundColor: "#16162a", border: "1px solid #222244" }}>
+          <div className="no-print mt-4 p-4 rounded-xl" style={{ backgroundColor: "#16162a", border: "1px solid #222244" }}>
             <textarea
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}

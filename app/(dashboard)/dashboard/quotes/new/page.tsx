@@ -39,6 +39,12 @@ function NewQuoteContent() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [parsed, setParsed] = useState(false);
+  const [toast, setToast] = useState("");
+
+  function showToast(msg: string) {
+    setToast(msg);
+    setTimeout(() => setToast(""), 3000);
+  }
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
@@ -50,6 +56,10 @@ function NewQuoteContent() {
 
   async function handleParseMessage() {
     if (!customerMessage.trim()) { setError("Please paste a customer message first"); return; }
+    if (customerMessage.trim().length < 25) {
+      setError("Message is too short. Please describe the job in more detail — include what needs to be done, where, and any relevant info.");
+      return;
+    }
     setError("");
     setParsing(true);
     try {
@@ -59,17 +69,20 @@ function NewQuoteContent() {
         body: JSON.stringify({ message: customerMessage }),
       });
       const data = await res.json();
+      if (!data.suggested_line_items || data.suggested_line_items.length === 0) {
+        setError("SnipBid couldn't identify a specific job from this message. Try adding what needs to be done — e.g. \"Replace kitchen faucet and patch drywall at 742 Evergreen Terrace\"");
+        setParsing(false);
+        return;
+      }
       if (data.customer_name) setClientName(data.customer_name);
       if (data.address) setClientAddress(data.address);
-      if (data.suggested_line_items?.length > 0) {
-        setLineItems(data.suggested_line_items.map((item: any) => ({
-          id: nanoid(),
-          serviceName: item.service_name,
-          description: item.description || "",
-          quantity: item.quantity || 1,
-          unitPrice: item.unit_price || 0,
-        })));
-      }
+      setLineItems(data.suggested_line_items.map((item: any) => ({
+        id: nanoid(),
+        serviceName: item.service_name,
+        description: item.description || "",
+        quantity: item.quantity || 1,
+        unitPrice: item.unit_price || 0,
+      })));
       setParsed(true);
       setMode("manual");
     } catch {
@@ -160,6 +173,26 @@ function NewQuoteContent() {
         sort_order: idx,
       }))
     );
+
+    // Auto-populate customers
+    if (clientName) {
+      const { data: existing } = await supabase
+        .from("customers")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("name", clientName)
+        .maybeSingle();
+      if (!existing) {
+        await supabase.from("customers").insert({
+          user_id: user.id,
+          name: clientName,
+          email: clientEmail || null,
+          phone: clientPhone || null,
+          address: clientAddress || null,
+        });
+      }
+    }
+
     return quote;
   }
 
@@ -167,7 +200,10 @@ function NewQuoteContent() {
     setSaving(true);
     const quote = await saveQuote("draft");
     setSaving(false);
-    if (quote) router.push(`/dashboard/quotes/${quote.id}`);
+    if (quote) {
+      showToast("Draft saved!");
+      setTimeout(() => router.push(`/dashboard/quotes/${quote.id}`), 800);
+    }
   }
 
   async function handleSendToClient() {
@@ -181,15 +217,22 @@ function NewQuoteContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ quoteId: quote.id }),
       });
+      showToast("Quote sent to client!");
     } catch {}
     setSending(false);
-    router.push(`/dashboard/quotes/${quote.id}`);
+    setTimeout(() => router.push(`/dashboard/quotes/${quote.id}`), 1000);
   }
 
   const inputStyle = { backgroundColor: "#0e0e1a", border: "1px solid #222244", color: "#e0e0ef" };
 
   return (
     <div>
+      {toast && (
+        <div className="fixed top-4 right-4 z-50 px-4 py-3 rounded-lg text-sm font-medium text-white shadow-lg"
+          style={{ backgroundColor: "#22c55e" }}>
+          ✓ {toast}
+        </div>
+      )}
       <h2 className="text-xl font-semibold mb-6" style={{ color: "#e0e0ef" }}>New Quote</h2>
 
       {/* Mode Toggle */}

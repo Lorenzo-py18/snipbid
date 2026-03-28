@@ -17,6 +17,12 @@ export default function QuoteDetailPage() {
   const [lineItems, setLineItems] = useState<any[]>([]);
   const [sending, setSending] = useState(false);
   const [converting, setConverting] = useState(false);
+  const [toast, setToast] = useState("");
+
+  function showToast(msg: string) {
+    setToast(msg);
+    setTimeout(() => setToast(""), 3000);
+  }
 
   useEffect(() => {
     async function load() {
@@ -31,11 +37,16 @@ export default function QuoteDetailPage() {
   async function handleSend() {
     setSending(true);
     await supabase.from("quotes").update({ status: "sent", sent_at: new Date().toISOString() }).eq("id", id);
-    await fetch("/api/quotes/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ quoteId: id }),
-    });
+    try {
+      await fetch("/api/quotes/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ quoteId: id }),
+      });
+      showToast("Quote sent to client!");
+    } catch {
+      showToast("Sent (email delivery may be delayed)");
+    }
     setQuote((q: any) => ({ ...q, status: "sent" }));
     setSending(false);
   }
@@ -56,9 +67,13 @@ export default function QuoteDetailPage() {
   }
 
   async function handleDelete() {
-    if (!confirm("Delete this quote?")) return;
+    if (!confirm("Delete this quote? This cannot be undone.")) return;
+    const { error } = await supabase.from("quotes").delete().eq("id", id);
+    if (error) {
+      showToast("Delete failed. Please try again.");
+      return;
+    }
     await supabase.from("line_items").delete().eq("quote_id", id);
-    await supabase.from("quotes").delete().eq("id", id);
     router.push("/dashboard/quotes");
   }
 
@@ -66,6 +81,12 @@ export default function QuoteDetailPage() {
 
   return (
     <div className="max-w-2xl">
+      {toast && (
+        <div className="fixed top-4 right-4 z-50 px-4 py-3 rounded-lg text-sm font-medium text-white shadow-lg"
+          style={{ backgroundColor: toast.includes("failed") || toast.includes("Failed") ? "#ef4444" : "#22c55e" }}>
+          {toast.includes("failed") || toast.includes("Failed") ? "✕" : "✓"} {toast}
+        </div>
+      )}
       <div className="flex items-center gap-3 mb-6">
         <Link href="/dashboard/quotes" style={{ color: "#8888aa" }}>← Back</Link>
         <span style={{ color: "#222244" }}>|</span>
@@ -88,9 +109,9 @@ export default function QuoteDetailPage() {
             <div key={item.id} className="flex justify-between text-sm">
               <div>
                 <p style={{ color: "#e0e0ef" }}>{item.service_name}</p>
-                <p style={{ color: "#8888aa" }}>{item.hours}h · Labor: ${item.labor_cost} · Materials: ${item.material_cost}</p>
+                <p style={{ color: "#8888aa" }}>Qty: {item.quantity} × ${Number(item.unit_price || 0).toFixed(2)}</p>
               </div>
-              <p style={{ color: "#e0e0ef" }}>${(item.labor_cost + item.material_cost).toFixed(2)}</p>
+              <p style={{ color: "#e0e0ef" }}>${Number(item.amount || 0).toFixed(2)}</p>
             </div>
           ))}
         </div>
@@ -114,7 +135,7 @@ export default function QuoteDetailPage() {
         </div>
       )}
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-wrap">
         {quote.status === "draft" && (
           <button onClick={handleSend} disabled={sending} className="flex-1 py-2.5 rounded-lg text-sm font-medium text-white" style={{ backgroundColor: "#f97316" }}>
             {sending ? "Sending..." : "Send to Client"}
@@ -123,6 +144,11 @@ export default function QuoteDetailPage() {
         {quote.public_token && (
           <Link href={`/q/${quote.public_token}`} target="_blank" className="flex-1 py-2.5 rounded-lg text-sm font-medium text-center border" style={{ borderColor: "#222244", color: "#e0e0ef" }}>
             Preview Client View
+          </Link>
+        )}
+        {quote.public_token && (
+          <Link href={`/q/${quote.public_token}?print=1`} target="_blank" className="px-4 py-2.5 rounded-lg text-sm font-medium text-center border" style={{ borderColor: "#222244", color: "#8888aa" }}>
+            ⬇ PDF
           </Link>
         )}
         {(quote.status === "approved") && (
