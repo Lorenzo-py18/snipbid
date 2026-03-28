@@ -28,10 +28,11 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Nav */}
-      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 40px", borderBottom: "1px solid #222244" }}>
+      <nav className="snip-nav">
         <span style={{ color: "#f97316", fontWeight: 700, fontSize: 20 }}>SnipBid</span>
         <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <Link href="/login" style={{ color: "#8888aa", textDecoration: "none", fontSize: 14 }}>Sign In</Link>
+          <Link href="/login" style={{ color: "#8888aa", textDecoration: "none", fontSize: 14 }} className="hide-on-mobile">Sign In</Link>
+          <Link href="/demo" style={{ color: "#e0e0ef", textDecoration: "none", fontSize: 14, padding: "8px 16px", borderRadius: 8, border: "1px solid #222244" }} className="hide-on-mobile">Try Demo</Link>
           <Link href="/signup" style={{ backgroundColor: "#f97316", color: "#fff", padding: "8px 20px", borderRadius: 8, textDecoration: "none", fontSize: 14, fontWeight: 600 }}>
             Start Free
           </Link>
@@ -40,7 +41,7 @@ export default function HomePage() {
 
       {/* Hero — two column */}
       <section style={{ padding: "72px 40px 60px", maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+        <div className="hero-grid">
           {/* Left: copy */}
           <div>
             <div style={{ display: "inline-block", backgroundColor: "#f9731622", color: "#f97316", padding: "5px 14px", borderRadius: 20, fontSize: 13, marginBottom: 20, border: "1px solid #f9731644" }}>
@@ -57,11 +58,11 @@ export default function HomePage() {
               AI drafts the quote. You review every price before sending.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link href="/signup" style={{ backgroundColor: "#f97316", color: "#fff", padding: "13px 28px", borderRadius: 10, textDecoration: "none", fontSize: 15, fontWeight: 700 }}>
-                Start Free
+              <Link href="/demo" style={{ backgroundColor: "#f97316", color: "#fff", padding: "13px 28px", borderRadius: 10, textDecoration: "none", fontSize: 15, fontWeight: 700 }}>
+                Try it now — no signup
               </Link>
-              <Link href="/templates/handyman-quote-template" style={{ backgroundColor: "#16162a", color: "#e0e0ef", padding: "13px 28px", borderRadius: 10, textDecoration: "none", fontSize: 15, border: "1px solid #222244" }}>
-                See Example Quote
+              <Link href="/signup" style={{ backgroundColor: "#16162a", color: "#e0e0ef", padding: "13px 28px", borderRadius: 10, textDecoration: "none", fontSize: 15, border: "1px solid #222244" }}>
+                Start Free
               </Link>
             </div>
             <p style={{ color: "#555577", fontSize: 13, marginTop: 14 }}>No credit card required · Free for 14 days</p>
@@ -220,7 +221,7 @@ export default function HomePage() {
       {/* Who it's for */}
       <section style={{ padding: "0 20px 72px", maxWidth: 860, margin: "0 auto" }}>
         <h2 style={{ textAlign: "center", fontSize: 28, fontWeight: 700, marginBottom: 40 }}>Built for small home service businesses — not office-heavy systems</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+        <div className="two-col-grid">
           <div style={{ backgroundColor: "#16162a", border: "1px solid #222244", borderRadius: 14, padding: 28 }}>
             <div style={{ color: "#22cc88", fontSize: 13, fontWeight: 600, marginBottom: 16, textTransform: "uppercase", letterSpacing: 1 }}>Best for</div>
             {[
@@ -282,7 +283,7 @@ export default function HomePage() {
               price: "$0",
               period: "14 days",
               positioning: "Best for trying SnipBid on real leads",
-              features: ["10 quotes", "AI generation", "PDF export", "Client approval link"],
+              features: ["Unlimited quotes for 14 days", "AI generation", "PDF export", "Client approval link"],
               cta: "Start Free",
               href: "/signup",
               highlight: false,
@@ -372,11 +373,11 @@ export default function HomePage() {
         </p>
         <p style={{ color: "#666688", fontSize: 14, marginBottom: 36 }}>AI drafts the quote. You review the pricing before sending.</p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link href="/signup" style={{ backgroundColor: "#f97316", color: "#fff", padding: "14px 36px", borderRadius: 10, textDecoration: "none", fontSize: 16, fontWeight: 700 }}>
-            Start Free
+          <Link href="/demo" style={{ backgroundColor: "#f97316", color: "#fff", padding: "14px 36px", borderRadius: 10, textDecoration: "none", fontSize: 16, fontWeight: 700 }}>
+            Try it now — no signup
           </Link>
-          <Link href="/templates/handyman-quote-template" style={{ backgroundColor: "#16162a", color: "#e0e0ef", padding: "14px 36px", borderRadius: 10, textDecoration: "none", fontSize: 16, border: "1px solid #222244" }}>
-            See Example Quote
+          <Link href="/signup" style={{ backgroundColor: "#16162a", color: "#e0e0ef", padding: "14px 36px", borderRadius: 10, textDecoration: "none", fontSize: 16, border: "1px solid #222244" }}>
+            Start Free
           </Link>
         </div>
         <p style={{ color: "#555577", fontSize: 13, marginTop: 16 }}>No credit card required · Free for 14 days</p>
