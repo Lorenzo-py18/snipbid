@@ -210,20 +210,28 @@ function NewQuoteContent() {
           {/* Mode A: Paste Message */}
           {mode === "paste" && (
             <div className="p-5 rounded-xl" style={{ backgroundColor: "#16162a", border: "1px solid #222244" }}>
-              <h3 className="font-medium mb-1" style={{ color: "#e0e0ef" }}>Paste Customer Message</h3>
+              <div className="flex items-center justify-between mb-1">
+                <h3 className="font-medium" style={{ color: "#e0e0ef" }}>Paste Customer Message</h3>
+                <button
+                  onClick={() => setCustomerMessage(DEMO_MESSAGE)}
+                  className="text-xs px-2 py-1 rounded"
+                  style={{ color: "#f97316", backgroundColor: "#f9731622", border: "1px solid #f9731444" }}>
+                  Load example
+                </button>
+              </div>
               <p className="text-xs mb-3" style={{ color: "#8888aa" }}>Paste a text, email, or DM from your customer — AI will extract the details</p>
               <textarea
                 value={customerMessage}
                 onChange={e => setCustomerMessage(e.target.value)}
-                placeholder={DEMO_MESSAGE}
+                placeholder="Paste your customer's message here, e.g. 'Hi, I need help replacing a faucet and patching drywall. Can you send a quote? - Sarah'"
                 rows={5}
                 className="w-full px-3 py-2 rounded-lg text-sm outline-none resize-none"
                 style={inputStyle}
               />
               {error && <p className="text-red-400 text-xs mt-2">{error}</p>}
-              <button onClick={handleParseMessage} disabled={parsing}
+              <button onClick={handleParseMessage} disabled={parsing || !customerMessage.trim()}
                 className="mt-3 w-full py-2.5 rounded-lg text-sm font-medium text-white"
-                style={{ backgroundColor: "#f97316", opacity: parsing ? 0.7 : 1 }}>
+                style={{ backgroundColor: "#f97316", opacity: (parsing || !customerMessage.trim()) ? 0.5 : 1, cursor: !customerMessage.trim() ? "not-allowed" : "pointer" }}>
                 {parsing ? "Analyzing message..." : "⚡ Generate Quote from Message"}
               </button>
             </div>
