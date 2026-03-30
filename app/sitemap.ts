@@ -4,8 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [
     { url: "https://snipbid.com", lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: "https://snipbid.com/signup", lastModified: now, changeFrequency: "yearly", priority: 0.9 },
-    { url: "https://snipbid.com/login", lastModified: now, changeFrequency: "yearly", priority: 0.5 },
+    { url: "https://snipbid.com/demo", lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     // Commercial landing pages
     { url: "https://snipbid.com/handyman-quote-software", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: "https://snipbid.com/quote-to-invoice-software", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
