@@ -17,5 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Blog posts
     { url: "https://snipbid.com/blog/how-to-write-a-handyman-estimate", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: "https://snipbid.com/blog/quote-vs-invoice-for-handymen", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/how-to-send-a-quote-over-text", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/how-to-convert-quote-to-invoice", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 }
