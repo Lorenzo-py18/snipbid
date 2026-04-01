@@ -54,4 +54,8 @@ body {
   .hide-on-mobile {
     display: none;
   }
+
+  .use-case-grid {
+    grid-template-columns: 1fr !important;
+  }
 }

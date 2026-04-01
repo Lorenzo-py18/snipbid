@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import UseCaseTabs from "./components/UseCaseTabs";
 
 export const metadata: Metadata = {
   title: "SnipBid | Handyman Quote Software & Quote-to-Invoice Workflow",
@@ -198,6 +199,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Use Cases */}
+      <UseCaseTabs />
 
       {/* Why SnipBid */}
       <section style={{ padding: "0 20px 72px", maxWidth: 900, margin: "0 auto" }}>
