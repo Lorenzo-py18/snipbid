@@ -19,5 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://snipbid.com/blog/quote-vs-invoice-for-handymen", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: "https://snipbid.com/blog/how-to-send-a-quote-over-text", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: "https://snipbid.com/blog/how-to-convert-quote-to-invoice", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/how-to-respond-to-customer-quote-request", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/text-message-to-professional-quote", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 }
