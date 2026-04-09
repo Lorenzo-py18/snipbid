@@ -21,5 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://snipbid.com/blog/how-to-convert-quote-to-invoice", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: "https://snipbid.com/blog/how-to-respond-to-customer-quote-request", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: "https://snipbid.com/blog/text-message-to-professional-quote", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/how-to-quote-small-repair-jobs", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/flat-rate-vs-hourly-for-handymen", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/how-to-follow-up-after-sending-a-handyman-quote", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/how-to-price-a-handyman-job-youve-never-done-before", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://snipbid.com/blog/should-you-give-free-estimates-as-a-handyman", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 }
