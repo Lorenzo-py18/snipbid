@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Handyman Quote Template | SnipBid",
+  title: "Free Handyman Quote Template",
   description: "Download or use a free handyman quote template. Learn what every handyman quote should include — and how SnipBid can build it for you in under a minute.",
   alternates: { canonical: "https://snipbid.com/templates/handyman-quote-template" },
 };

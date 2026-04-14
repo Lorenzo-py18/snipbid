@@ -3,9 +3,21 @@ import type { Metadata } from "next";
 import UseCaseTabs from "./components/UseCaseTabs";
 
 export const metadata: Metadata = {
-  title: "SnipBid | Handyman Quote Software & Quote-to-Invoice Workflow",
-  description: "SnipBid helps handymen and small home service businesses turn texts, notes, and job details into editable quotes — then convert them into invoices when approved. AI drafts the quote. You review every price before sending.",
+  title: { absolute: "Handyman Quote & Invoice Software for Small Service Pros | SnipBid" },
+  description: "SnipBid helps handymen and small home service pros turn customer texts, notes, and job details into editable quotes, then convert approved quotes into invoices.",
   alternates: { canonical: "https://snipbid.com" },
+  openGraph: {
+    title: "Handyman Quote & Invoice Software for Small Service Pros | SnipBid",
+    description: "SnipBid helps handymen and small home service pros turn customer texts, notes, and job details into editable quotes, then convert approved quotes into invoices.",
+    url: "https://snipbid.com",
+    siteName: "SnipBid",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Handyman Quote & Invoice Software | SnipBid",
+    description: "Turn customer texts into professional quotes in under a minute. Free to try.",
+  },
 };
 
 const jsonLd = {

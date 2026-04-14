@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "From Text Message to Professional Quote in Under a Minute | SnipBid",
+  title: "From Text Message to Professional Quote in Under a Minute",
   description: "Learn how to turn a rough customer text into a professional quote fast. Step-by-step process, real examples, and the fastest way to go from messy message to client-ready quote.",
   alternates: { canonical: "https://snipbid.com/blog/text-message-to-professional-quote" },
 };

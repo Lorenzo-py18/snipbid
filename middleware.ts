@@ -7,6 +7,7 @@ export async function middleware(request: NextRequest) {
   const publicPaths = [
     "/",
     "/login", "/signup", "/onboarding", "/forgot-password", "/reset-password",
+    "/auth/callback",
     "/demo",
     "/q/", "/i/",
     "/handyman-quote-software", "/quote-to-invoice-software",

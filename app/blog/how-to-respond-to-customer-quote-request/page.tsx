@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How to Respond When a Customer Texts You for a Quote | SnipBid",
+  title: "How to Respond When a Customer Texts You for a Quote",
   description: "Learn exactly what to say when a customer texts asking for a quote. Includes word-for-word response examples, what to ask before pricing, and how to turn rough messages into professional quotes fast.",
   alternates: { canonical: "https://snipbid.com/blog/how-to-respond-to-customer-quote-request" },
 };

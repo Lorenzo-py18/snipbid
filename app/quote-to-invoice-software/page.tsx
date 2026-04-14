@@ -2,9 +2,21 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Quote to Invoice Software for Small Service Businesses | SnipBid",
-  description: "Create a professional quote fast, send it to your client, and convert it into an invoice when approved. Built for handymen and small home service businesses.",
+  title: "Quote to Invoice Software for Small Service Businesses",
+  description: "Create quotes faster, send them to clients, and convert approved quotes into invoices without rewriting everything. Built for handymen and small home service businesses.",
   alternates: { canonical: "https://snipbid.com/quote-to-invoice-software" },
+  openGraph: {
+    title: "Quote to Invoice Software for Small Service Businesses | SnipBid",
+    description: "Create quotes faster, send them to clients, and convert approved quotes into invoices without rewriting everything.",
+    url: "https://snipbid.com/quote-to-invoice-software",
+    siteName: "SnipBid",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quote to Invoice Software | SnipBid",
+    description: "Quote → approve → invoice. No rewriting. Built for small home service businesses.",
+  },
 };
 
 const faqSchema = {

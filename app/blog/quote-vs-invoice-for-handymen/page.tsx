@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Quote vs Invoice for Handymen: What's the Difference? | SnipBid",
+  title: "Quote vs Invoice for Handymen: What's the Difference?",
   description: "Learn the difference between a quote and an invoice for handymen. When to send each one, common mistakes, and how SnipBid connects them in one workflow.",
   alternates: { canonical: "https://snipbid.com/blog/quote-vs-invoice-for-handymen" },
 };

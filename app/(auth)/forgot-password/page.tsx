@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { getAuthCallbackUrl } from "@/lib/auth-redirect";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ export default function ForgotPasswordPage() {
     setLoading(true);
     setError("");
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`,
+      redirectTo: getAuthCallbackUrl("/reset-password"),
     });
     setLoading(false);
     if (error) {

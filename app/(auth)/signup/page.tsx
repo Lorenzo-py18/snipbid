@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { getAuthCallbackUrl } from "@/lib/auth-redirect";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -22,7 +23,7 @@ export default function SignupPage() {
       password,
       options: {
         data: { business_name: businessName },
-        emailRedirectTo: "https://snipbid.com/dashboard",
+        emailRedirectTo: getAuthCallbackUrl("/onboarding"),
       },
     });
 

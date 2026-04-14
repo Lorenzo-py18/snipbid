@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Handyman Invoice Template | SnipBid",
+  title: "Free Handyman Invoice Template",
   description: "Download or use a free handyman invoice template. Learn what every handyman invoice should include and how SnipBid converts approved quotes into invoices automatically.",
   alternates: { canonical: "https://snipbid.com/templates/handyman-invoice-template" },
 };

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How to Convert a Quote Into an Invoice (Without Rewriting Everything) | SnipBid",
+  title: "How to Convert a Quote Into an Invoice (Without Rewriting Everything)",
   description: "Learn how to turn an approved quote into an invoice without starting from scratch. Includes what to keep, what to change, and a simple 5-step workflow for handymen.",
   alternates: { canonical: "https://snipbid.com/blog/how-to-convert-quote-to-invoice" },
 };

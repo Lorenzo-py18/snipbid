@@ -9,10 +9,10 @@ const GA_ID = "G-6K5XSV0H61";
 
 export const metadata: Metadata = {
   title: {
-    default: "SnipBid | Handyman Quote Software & Quote-to-Invoice Workflow",
+    default: "Handyman Quote & Invoice Software for Small Service Pros | SnipBid",
     template: "%s | SnipBid",
   },
-  description: "SnipBid helps handymen and small home service businesses turn customer texts into professional quotes in under a minute — then convert them into invoices when approved.",
+  description: "SnipBid helps handymen and small home service pros turn customer texts, notes, and job details into editable quotes, then convert approved quotes into invoices.",
   keywords: ["handyman quote software", "quote to invoice software", "handyman estimate software", "home service quote software", "handyman invoicing app"],
   authors: [{ name: "SnipBid" }],
   creator: "SnipBid",
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://snipbid.com",
     siteName: "SnipBid",
-    title: "SnipBid | Handyman Quote Software & Quote-to-Invoice Workflow",
-    description: "Turn messy customer texts into professional quotes in under a minute. AI drafts the quote. You review every price before sending.",
+    title: "Handyman Quote & Invoice Software for Small Service Pros | SnipBid",
+    description: "SnipBid helps handymen and small home service pros turn customer texts, notes, and job details into editable quotes, then convert approved quotes into invoices.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "SnipBid — Handyman Quote Software" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SnipBid | Handyman Quote Software",
+    title: "Handyman Quote & Invoice Software | SnipBid",
     description: "Turn customer texts into professional quotes in under a minute. Free to try.",
     images: ["/og-image.png"],
   },
@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  alternates: { canonical: "https://snipbid.com" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

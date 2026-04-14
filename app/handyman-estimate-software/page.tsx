@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Handyman Estimate Software for Small Businesses | SnipBid",
+  title: "Handyman Estimate Software for Small Businesses",
   description: "SnipBid helps handymen write professional estimates fast. Paste a customer message, get an editable estimate draft in seconds, then convert it to an invoice when approved.",
   alternates: { canonical: "https://snipbid.com/handyman-estimate-software" },
 };

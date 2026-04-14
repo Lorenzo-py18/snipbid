@@ -2,9 +2,21 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Handyman Quote Software for Small Businesses | SnipBid",
-  description: "SnipBid helps handymen turn customer texts and job notes into editable professional quotes — then convert them into invoices when approved. Start free.",
+  title: "Handyman Quote Software for Small Businesses",
+  description: "Turn customer texts and job notes into clean, editable handyman quotes in minutes. Built for solo pros and small home service teams.",
   alternates: { canonical: "https://snipbid.com/handyman-quote-software" },
+  openGraph: {
+    title: "Handyman Quote Software for Small Businesses | SnipBid",
+    description: "Turn customer texts and job notes into clean, editable handyman quotes in minutes. Built for solo pros and small home service teams.",
+    url: "https://snipbid.com/handyman-quote-software",
+    siteName: "SnipBid",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Handyman Quote Software for Small Businesses | SnipBid",
+    description: "Turn customer texts into professional quotes in minutes. Free to try.",
+  },
 };
 
 const faqSchema = {

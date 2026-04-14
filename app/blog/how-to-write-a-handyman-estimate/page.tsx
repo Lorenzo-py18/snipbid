@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How to Write a Handyman Estimate (With Example) | SnipBid",
+  title: "How to Write a Handyman Estimate (With Example)",
   description: "A step-by-step guide to writing a professional handyman estimate. Learn what to include, see a real example, and discover how to quote faster with SnipBid.",
   alternates: { canonical: "https://snipbid.com/blog/how-to-write-a-handyman-estimate" },
 };

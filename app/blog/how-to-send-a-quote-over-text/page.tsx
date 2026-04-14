@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How to Send a Professional Quote Over Text (Handyman Guide) | SnipBid",
+  title: "How to Send a Professional Quote Over Text (Handyman Guide)",
   description: "Learn how to send a professional quote by text message as a handyman. Includes a ready-to-use template, common mistakes to avoid, and when to upgrade to a formal quote.",
   alternates: { canonical: "https://snipbid.com/blog/how-to-send-a-quote-over-text" },
 };
