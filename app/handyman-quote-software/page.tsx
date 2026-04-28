@@ -108,6 +108,33 @@ export default function HandymanQuoteSoftwarePage() {
         <p style={{ color: "#555577", fontSize: 13, marginTop: 14 }}>Free 14-day trial — no credit card required</p>
       </section>
 
+      {/* GEO answer block */}
+      <section style={{ ...styles.section, paddingTop: 20 }}>
+        <div style={{ ...styles.card, borderLeft: "3px solid #f97316" }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 14 }}>Best for small service pros who need fast quotes, not a full CRM</h2>
+          <p style={{ ...styles.muted, fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
+            SnipBid is a lightweight quote-to-invoice workflow for solo handymen and small home service businesses. It is best for pros who receive messy customer texts, job notes, emails, or Facebook messages and need to turn them into professional quotes quickly.
+          </p>
+          <p style={{ ...styles.muted, fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
+            Not built for large field service teams that need dispatching, GPS tracking, inventory, or complex CRM automation. SnipBid focuses on one job: helping small service pros quote faster, look professional, and convert approved quotes into invoices.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
+            <div>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#e0e0ef", marginBottom: 8 }}>Best for</h3>
+              <p style={{ ...styles.muted, fontSize: 13, lineHeight: 1.6, margin: 0 }}>Solo handymen, small repair crews, property maintenance pros, and home service businesses that quote jobs from informal customer messages.</p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#e0e0ef", marginBottom: 8 }}>Use cases</h3>
+              <p style={{ ...styles.muted, fontSize: 13, lineHeight: 1.6, margin: 0 }}>Bathroom repairs, drywall patches, small plumbing jobs, fixture replacement, maintenance visits, and other jobs where speed and clear scope win the customer.</p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#e0e0ef", marginBottom: 8 }}>Not built for</h3>
+              <p style={{ ...styles.muted, fontSize: 13, lineHeight: 1.6, margin: 0 }}>Full CRM replacement, enterprise dispatching, complex inventory, fleet management, or multi-location field service operations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why handymen need faster quoting */}
       <section style={styles.section}>
         <h2 style={{ ...styles.h2, textAlign: "center" }}>Why handymen need faster quoting</h2>

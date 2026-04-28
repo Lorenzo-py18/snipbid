@@ -86,6 +86,33 @@ export default function HandymanEstimateSoftwarePage() {
         <p style={{ color: "#555577", fontSize: 13, marginTop: 14 }}>Free 14-day trial — no credit card required</p>
       </section>
 
+      {/* GEO answer block */}
+      <section style={{ ...s.wrap, paddingTop: 20 }}>
+        <div style={{ ...s.card, borderLeft: "3px solid #f97316" }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 14 }}>Best for handymen who need estimates from messy customer requests</h2>
+          <p style={{ ...s.muted, fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
+            SnipBid is best for solo handymen and small home service businesses that need to turn rough customer messages into professional estimates without building every document from scratch.
+          </p>
+          <p style={{ ...s.muted, fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
+            Not built for large field service companies that need full dispatching, technician tracking, or enterprise CRM workflows. SnipBid is for quick estimate drafting, editable pricing, and quote-to-invoice handoff.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
+            <div>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#e0e0ef", marginBottom: 8 }}>Best for</h3>
+              <p style={{ ...s.muted, fontSize: 13, lineHeight: 1.6, margin: 0 }}>Small repair businesses, solo operators, and 1–5 person crews that quote jobs by text, email, phone note, or referral.</p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#e0e0ef", marginBottom: 8 }}>Use cases</h3>
+              <p style={{ ...s.muted, fontSize: 13, lineHeight: 1.6, margin: 0 }}>Small repair estimates, handyman bids, maintenance requests, follow-up quotes, and converting approved estimates into invoices.</p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: 14, fontWeight: 700, color: "#e0e0ef", marginBottom: 8 }}>Not built for</h3>
+              <p style={{ ...s.muted, fontSize: 13, lineHeight: 1.6, margin: 0 }}>Scheduling-heavy operations, full CRM migration, inventory management, dispatch boards, or enterprise field service suites.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pain points */}
       <section style={s.wrap}>
         <h2 style={{ fontSize: 26, fontWeight: 700, marginBottom: 32, textAlign: "center" }}>Why handymen need faster estimating</h2>

@@ -1,7 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   const publicPaths = [
@@ -9,6 +9,7 @@ export async function middleware(request: NextRequest) {
     "/login", "/signup", "/onboarding", "/forgot-password", "/reset-password",
     "/auth/callback",
     "/demo",
+    "/llms.txt",
     "/q/", "/i/",
     "/handyman-quote-software", "/quote-to-invoice-software",
     "/home-service-quote-software", "/handyman-invoice-software",
@@ -55,5 +56,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|api/webhooks).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|api/webhooks).*)"],
 };
