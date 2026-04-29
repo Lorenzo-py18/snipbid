@@ -65,6 +65,22 @@ for (const phrase of ['Best for', 'Not built for', 'Use cases']) {
   if (!estimatePage.includes(phrase)) fail(`handyman estimate page missing GEO phrase: ${phrase}`);
 }
 
+const quoteToInvoicePage = assertFile('app/quote-to-invoice-software/page.tsx');
+for (const phrase of [
+  'Convert Approved Quotes to Invoices',
+  'Quick answer',
+  'Best for',
+  'Not built for',
+  'Use cases',
+  'SoftwareApplication',
+  'BreadcrumbList',
+  'Compared with templates',
+  'Compared with invoice-only tools',
+  'Compared with full CRMs',
+]) {
+  if (!quoteToInvoicePage.includes(phrase)) fail(`quote-to-invoice page missing GEO phrase: ${phrase}`);
+}
+
 assertFile('proxy.ts');
 if (existsSync(join(root, 'middleware.ts'))) fail('middleware.ts should be migrated to proxy.ts');
 
